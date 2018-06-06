@@ -1,6 +1,12 @@
 
 
 def merge_sort(l):
+    """
+    Divide and conquer until sorted.
+
+    :param l: list to sort.
+    :return: sorted list.
+    """
 
     if len(l) <= 1:
         return l
@@ -14,6 +20,13 @@ def merge_sort(l):
 
 
 def merge(l1, l2):
+    """
+    Merge two sorted lists into a single sorted list.
+
+    :param l1: sorted list.
+    :param l2: sorted list.
+    :return: sorted list with all elements from l1 and l2.
+    """
 
     l = [None] * (len(l1) + len(l2))
 

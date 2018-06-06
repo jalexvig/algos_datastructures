@@ -2,6 +2,12 @@ from collections import defaultdict
 
 
 def radix_sort(l):
+    """
+    Use binary representations of elements to sort.
+
+    :param l: list to sort.
+    :return: sorted list with all elements from l1 and l2.
+    """
 
     l = [bin(x)[2:] for x in l]
 

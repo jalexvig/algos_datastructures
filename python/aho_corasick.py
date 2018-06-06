@@ -17,6 +17,12 @@ class Node:
 
 
 def construct_ac_trie(*words):
+    """
+    Construct trie for sequences of characters.
+
+    :param words: list of patterns to search for.
+    :return: root node.
+    """
 
     root = Node()
 
@@ -30,6 +36,11 @@ def construct_ac_trie(*words):
 
 
 def update_failed_states(root):
+    """
+    Mark fail states for all nodes in graph.
+
+    :param root: node.
+    """
 
     q = deque()
 
@@ -53,6 +64,13 @@ def update_failed_states(root):
 
 
 def find(root, s):
+    """
+    Find instances of patterns defined by root in a string.
+
+    :param root: node.
+    :param s: string to search.
+    :return: list of matches of patterns.
+    """
 
     res = []
     node = root

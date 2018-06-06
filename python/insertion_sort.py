@@ -1,6 +1,11 @@
 
 
 def insertion_sort(l):
+    """
+    Insert successive elements into correct locations until sorted.
+
+    :param l: list to sort.
+    """
 
     # i is index of element in question
     for i in range(l):

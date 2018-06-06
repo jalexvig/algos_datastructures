@@ -1,6 +1,12 @@
 
 
 def bubble_sort(l):
+    """
+    Swap pairs of elements until sorted.
+
+    :param l: list to sort.
+    :return: sorted list.
+    """
 
     n = len(l)
 
@@ -8,8 +14,6 @@ def bubble_sort(l):
         for j in range(n - 1 - i):
             if l[j] > l[j+1]:
                 l[j], l[j+1] = l[j+1], l[j]
-
-    return l
 
 
 if __name__ == '__main__':
