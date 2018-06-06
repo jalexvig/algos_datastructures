@@ -41,16 +41,16 @@ def kmp(pattern, text):
 
     res = []
 
-    dfa = construct_dfa(pattern)
+    fail_jumps = construct_fail_jumps(pattern)
 
     # state of dfa (maximal number characters matched)
     len_substr = 0
 
     for j, c in enumerate(text):
 
+        # move dfa back to longest match
         while len_substr > 0 and c != pattern[len_substr]:
-            # move dfa back to longest match
-            len_substr = dfa[len_substr-1]
+            len_substr = fail_jumps[len_substr-1]
 
         if c == pattern[len_substr]:
             # increment dfa state
@@ -59,12 +59,12 @@ def kmp(pattern, text):
             if len_substr == len(pattern):
                 # dfa in match state
                 res.append(j - len_substr + 1)
-                len_substr = dfa[-1]
+                len_substr = fail_jumps[-1]
 
     return res
 
 
-def construct_dfa(pattern):
+def construct_fail_jumps(pattern):
     """
     Get lengths of longest proper prefixes that are suffixes at every position.
 
@@ -74,18 +74,18 @@ def construct_dfa(pattern):
     Returns: list
     """
 
-    dfa = [0]
+    longest_substr = [0]
 
     for i in range(1, len(pattern)):
 
-        len_substr = dfa[-1]
+        len_substr = longest_substr[-1]
 
         while len_substr > 0 and pattern[len_substr] != pattern[i]:
-            len_substr = dfa[len_substr-1]
+            len_substr = longest_substr[len_substr-1]
 
-        dfa.append(len_substr + (pattern[len_substr] == pattern[i]))
+        longest_substr.append(len_substr + (pattern[len_substr] == pattern[i]))
 
-    return dfa
+    return longest_substr
 
 
 if __name__ == '__main__':
