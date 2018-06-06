@@ -1,6 +1,13 @@
 
 
 def rabin_karp(pattern, text):
+    """
+    Search for pattern in string.
+
+    :param pattern: Needle.
+    :param text: Haystack.
+    :return: List of starting indices of pattern in text.
+    """
 
     # hash pattern
     # compare substrings of text to the hash of the pattern
@@ -24,11 +31,32 @@ def rabin_karp(pattern, text):
 
 
 def rolling_hash(s, base, prime):
+    """
+    Calculate an initial rolling hash.
+
+    Rolling hashes are useful because they can be modified in O(1).
+
+    :param s: String to compute rolling hash on.
+    :param base: Used to shift current hash.
+    :param prime: Prime number used to reduce size of hash.
+    :return: Hash of string.
+    """
 
     return sum(ord(c) * base ** i for i, c in enumerate(reversed(s))) % prime
 
 
 def rolling_hash_optim(s, base, prime):
+    """
+    Calculate an initial rolling hash using prime to keep intermediate hash representations low.
+
+    Rolling hashes are useful because they can be modified in O(1). Keeping intermediate hash representations low can
+    prevent overflows.
+
+    :param s: String to compute rolling hash on.
+    :param base: Used to shift current hash.
+    :param prime: Prime number used to reduce size of hash.
+    :return: Hash of string.
+    """
 
     res = 0
 
@@ -44,10 +72,26 @@ def rolling_hash_optim(s, base, prime):
 
 
 def update_hash(n_pattern, base, prime):
+    """
+    Generate function to modify current hash.
+
+    :param n_pattern: Number of characters in the pattern.
+    :param base: Used to shift current hash.
+    :param prime: Prime number used to reduce size of hash.
+    :return: function.
+    """
 
     diff = base ** (n_pattern - 1)
 
     def inner(c_old, c_new, h):
+        """
+        Update current hash.
+
+        :param c_old: Character whose representation is being dropped from hash.
+        :param c_new: Character whose representation is being added to hash.
+        :param h: Current hash.
+        :return: New hash.
+        """
 
         h -= ord(c_old) * diff
         h *= base
@@ -60,6 +104,14 @@ def update_hash(n_pattern, base, prime):
 
 
 def update_hash_optim(n_pattern, base, prime):
+    """
+    Generate function to modify current hash.
+
+    :param n_pattern: Number of characters in the pattern.
+    :param base: Used to shift current hash.
+    :param prime: Prime number used to reduce size of hash.
+    :return: function.
+    """
 
     diff = 1
     for i in range(n_pattern - 1):
@@ -67,6 +119,16 @@ def update_hash_optim(n_pattern, base, prime):
         diff %= prime
 
     def inner(c_old, c_new, h):
+        """
+        Update current hash using prime to keep intermediate hash represe
+
+        Keeping intermediate hash representations low can prevent overflows.
+
+        :param c_old: Character whose representation is being dropped from hash.
+        :param c_new: Character whose representation is being added to hash.
+        :param h: Current hash.
+        :return: New hash.
+        """
 
         res = ((h + prime - ord(c_old) * diff % prime) * base + ord(c_new)) % prime
 
@@ -76,6 +138,16 @@ def update_hash_optim(n_pattern, base, prime):
 
 
 def rabin_karp_rolling(pattern, text, base=256, prime=101, optim=True):
+    """
+    Search for pattern in string using a rolling hash.
+
+    :param pattern: Needle.
+    :param text: Haystack.
+    :param base: Used to shift current hash.
+    :param prime: Prime number used to reduce size of hash.
+    :param optim: Keep intermediate values low when computing/updating hash (can prevent overflows).
+    :return: List of starting indices of pattern in text.
+    """
 
     res = []
     n = len(pattern)
