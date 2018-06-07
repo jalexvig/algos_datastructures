@@ -8,7 +8,7 @@ def insertion_sort(l):
     """
 
     # i is index of element in question
-    for i in range(l):
+    for i in range(len(l)):
         # j is index of element (in sorted prefix) we are switching with
         for j in range(i-1, -1):
             if l[i] < l[j]:
