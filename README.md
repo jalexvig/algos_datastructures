@@ -7,3 +7,4 @@
 * [merge sort](https://github.com/jalexvig/learn_algos/tree/master/sort/merge)
 * [rabin karp](https://github.com/jalexvig/learn_algos/tree/master/string_search/rabin_karp)
 * [radix sort](https://github.com/jalexvig/learn_algos/tree/master/sort/radix)
+* [selection sort](https://github.com/jalexvig/learn_algos/tree/master/sort/selection)
