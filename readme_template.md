@@ -1,0 +1,9 @@
+# {}
+
+
+
+### Characteristics
+
+* `n` = 
+
+**Worst speed** : ``
