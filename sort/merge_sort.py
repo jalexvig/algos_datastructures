@@ -1,12 +1,22 @@
+"""
+Sort array.
+
+Summary:
+
+    1. Split into two halves and recurse (base case is a single element array)
+    2. Merge these two sorted results
+
+Characteristics:
+
+    * n number elements
+
+    Worst Time: O(n logn)
+
+    Stable: True
+"""
 
 
-def merge_sort(l):
-    """
-    Divide and conquer until sorted.
-
-    :param l: list to sort.
-    :return: sorted list.
-    """
+def merge_sort(l: list):
 
     if len(l) <= 1:
         return l
@@ -19,14 +29,8 @@ def merge_sort(l):
     return merge(sorted1, sorted2)
 
 
-def merge(l1, l2):
-    """
-    Merge two sorted lists into a single sorted list.
-
-    :param l1: sorted list.
-    :param l2: sorted list.
-    :return: sorted list with all elements from l1 and l2.
-    """
+def merge(l1: list, l2: list):
+    """Merge two sorted lists into a single sorted list."""
 
     l = [None] * (len(l1) + len(l2))
 

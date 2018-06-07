@@ -1,11 +1,21 @@
+"""
+Sort array.
+
+Summary:
+
+    Move one element at a time into the correct position with respect to the preceding elements of the array.
+
+Characteristics:
+
+    * n number elements
+
+    Worst Time: O(n ** 2)
+
+    Stable: True
+"""
 
 
-def insertion_sort(l):
-    """
-    Insert successive elements into correct locations until sorted.
-
-    :param l: list to sort.
-    """
+def insertion_sort(l: list):
 
     # i is index of element in question
     for i in range(len(l)):

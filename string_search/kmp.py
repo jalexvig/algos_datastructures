@@ -1,15 +1,26 @@
+"""
+Search for a pattern in text.
+
+Summary:
+
+    1. Recursively determine longest matching pattern prefix (fail state) at every position of pattern.
+    2. Create DFA using fail state lookups when characters don't match.
+
+Characteristics:
+
+    * `m` = length of pattern -- O(m) incurred when building fail state array
+    * `n` = length of search text
+
+    Worst Time: O(m + n)
+
+Other:
+
+    * This is Aho-Corasick for one pattern.
+"""
 
 
-def naive(pattern, text):
-    """
-    Naive pattern matching
-
-    Args:
-        pattern: pattern to search for
-        text:  text to search in
-
-    Returns: list of indices of matches
-    """
+def naive(pattern: str, text: str):
+    """Naive pattern matching."""
 
     res = []
     n = len(text)
@@ -24,16 +35,7 @@ def naive(pattern, text):
     return res
 
 
-def kmp(pattern, text):
-    """
-    KMP
-
-    Args:
-        pattern: pattern to search for
-        text:  text to search in
-
-    Returns: list of indices of matches
-    """
+def kmp(pattern: str, text: str):
 
     # DFA with n+1 states
     # when reach last state we have a match
@@ -64,15 +66,8 @@ def kmp(pattern, text):
     return res
 
 
-def construct_fail_jumps(pattern):
-    """
-    Get lengths of longest proper prefixes that are suffixes at every position.
-
-    Args:
-        pattern: pattern to analyze
-
-    Returns: list
-    """
+def construct_fail_jumps(pattern: str):
+    """Get lengths of longest proper prefixes that are suffixes at every position."""
 
     longest_substr = [0]
 

@@ -1,11 +1,21 @@
+"""
+Sort array.
+
+Summary:
+
+    This algorithm works by iteratively scanning for the smallest remaining element and moving it into place.
+
+Characteristics:
+
+    * n number elements
+
+    Worst Time: O(n ** 2)
+
+    Stable: False (can be made stable)
+"""
 
 
-def selection_sort(l):
-    """
-    Swap minimum remaining element into correct place iteratively.
-
-    :param l: list to sort.
-    """
+def selection_sort(l: list):
 
     n = len(l)
 

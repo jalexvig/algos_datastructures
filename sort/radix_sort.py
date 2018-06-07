@@ -1,13 +1,21 @@
+"""
+Sort array.
+
+Summary:
+
+    1. Put elements of an array into buckets (obtained with mod `m`).
+    2. Recombine those buckets in order.
+    3. Recursively get higher order chunks of each element.
+
+Characteristics:
+
+    Stable: True
+"""
+
 from collections import defaultdict
 
 
-def radix_sort(l):
-    """
-    Use binary representations of elements to sort.
-
-    :param l: list to sort.
-    :return: sorted list with all elements from l1 and l2.
-    """
+def radix_sort(l: list):
 
     l = [bin(x)[2:] for x in l]
 

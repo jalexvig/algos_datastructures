@@ -1,3 +1,25 @@
+"""
+Search for patterns in text.
+
+Summary:
+
+    1. Construct a [trie](https://en.wikipedia.org/wiki/Trie) of the patterns.
+    2. Recursively determine fail states by looking at parent's fail state.
+    3. Use trie to create DFA with non-matches following to fail states.
+
+Characteristics:
+
+    * `m` = length of all patterns -- O(m) incurred when building the trie
+    * `n` = length of search text
+    * `z` = number matches
+
+    Worst Time: O(m + n + z)
+
+Other:
+
+    * This is KMP extended to multiple patterns.
+"""
+
 from collections import deque
 
 
@@ -16,31 +38,21 @@ class Node:
         return self.paths[item]
 
 
-def construct_ac_trie(*words):
-    """
-    Construct trie for sequences of characters.
-
-    :param words: list of patterns to search for.
-    :return: root node.
-    """
+def construct_trie(*patterns: list):
 
     root = Node()
 
-    for s in words:
+    for pattern in patterns:
         node = root
-        for c in s:
+        for c in pattern:
             node = node.paths.setdefault(c, Node())
-        node.out.append(s)
+        node.out.append(pattern)
 
     return root
 
 
-def update_failed_states(root):
-    """
-    Mark fail states for all nodes in graph.
-
-    :param root: node.
-    """
+def update_failed_states(root: Node):
+    """Mark fail states for all nodes in graph."""
 
     q = deque()
 
@@ -63,19 +75,13 @@ def update_failed_states(root):
             q.append(node_child)
 
 
-def find(root, s):
-    """
-    Find instances of patterns defined by root in a string.
-
-    :param root: node.
-    :param s: string to search.
-    :return: list of matches of patterns.
-    """
+def find(root: Node, text: str):
+    """Find instances of patterns defined by root in a string."""
 
     res = []
     node = root
 
-    for c in s:
+    for c in text:
 
         while node and c not in node:
             node = node.fail
@@ -98,7 +104,7 @@ if __name__ == '__main__':
     patterns = ['a', 'abc', 'bcd', 'abcdef', 'cdefg']
     text = 'eaabcdabcdefg'
 
-    root = construct_ac_trie(*patterns)
+    root = construct_trie(*patterns)
 
     update_failed_states(root)
 
