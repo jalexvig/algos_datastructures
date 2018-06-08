@@ -1,0 +1,23 @@
+"""
+TODO
+
+Summary:
+
+    TODO
+
+Characteristics:
+
+    * n number
+
+    Worst Time: TODO
+"""
+
+
+def {}():
+
+    pass
+
+
+if __name__ == '__main__':
+
+    pass
