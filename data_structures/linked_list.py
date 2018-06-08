@@ -87,6 +87,8 @@ class LinkedList(object):
 
         self.n += 1
 
+        return self.head
+
     def append_right(self, item):
 
         node = Node(item, None)
@@ -99,6 +101,8 @@ class LinkedList(object):
         self.last = node
 
         self.n += 1
+
+        return self.last
 
     def pop(self, idx):
 
@@ -140,8 +144,12 @@ class LinkedList(object):
 
         self.n += 1
 
+        return prev.next
+
 
 class DoublyLinkedList(LinkedList):
+
+    # TODO(jalex): Rewrite this class w/o inheritance
 
     def __str__(self):
 
@@ -157,12 +165,30 @@ class DoublyLinkedList(LinkedList):
 
         return forw_str + '\n' + rev_str
 
+    def __getitem__(self, idx):
+
+        # Note: this breaks modularity since it will be called in super().__getitem__ calls
+
+        if not isinstance(idx, int):
+            raise TypeError
+
+        if idx < self.n // 2:
+            return super().__getitem__(idx)
+
+        current = self.last
+        for _ in range(self.n - 1 - idx):
+            current = current.prev
+
+        return current
+
     def append_left(self, item):
 
         super().append_left(item)
 
         if self.head.next:
             self.head.next.prev = self.head
+
+        return self.head
 
     def append_right(self, item):
 
@@ -173,27 +199,34 @@ class DoublyLinkedList(LinkedList):
         if last_old:
             self.last.prev = last_old
 
+        return self.last
+
     def pop(self, idx):
 
-        super().pop(idx)
+        if 0 < idx < self.n:
+            prev = self[idx - 1]
+
+        res = super().pop(idx)
 
         if idx < self.n:
             if idx == 0:
                 self.head.prev = None
             else:
-                prev = self[idx - 1]
                 prev.next.prev = prev
+
+        return res
 
     def insert(self, idx, val):
 
-        super().insert(idx, val)
+        if 0 < idx <= self.n:
+            prev = self[idx - 1]
+
+        curr = super().insert(idx, val)
 
         if idx > 0:
-            prev = self[idx - 1]
             prev.next.prev = prev
 
         if idx < self.n - 1:
-            curr = self[idx]
             curr.next.prev = curr
 
 
@@ -204,10 +237,16 @@ class InvalidAccessException(Exception):
 if __name__ == '__main__':
 
     l = DoublyLinkedList()
-    l.append_right(3)
-    l.append_right(5)
-    l.append_left(4)
-    l.insert(1, 0)
-    l.pop(2)
-    assert 3 not in l
+    l.insert(0, 3)
+    l.insert(0, 2)
+    l.append_left(1)
+    l.insert(3, 4)
+    l.insert(4, 5)
+    l.insert(5, 7)
+    l.insert(5, 6)
+    l.append_right(8)
+    print(l)
+
+    l.pop(1)
+    l.pop(3)
     print(l)
