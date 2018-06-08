@@ -11,6 +11,8 @@ Characteristics:
 
     Index:
         Worst Time: O(n)
+    Search:
+        Worst Time: O(n)
     Append left:
         Worst Time: O(1)
     Append right:
