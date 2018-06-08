@@ -13,5 +13,6 @@
 
 # data structures
 
+* [fifo queue](https://github.com/jalexvig/learn_algos/blob/master/data_structures/fifo_queue.py)
 * [linked list](https://github.com/jalexvig/learn_algos/blob/master/data_structures/linked_list.py)
 * [stack](https://github.com/jalexvig/learn_algos/blob/master/data_structures/stack.py)
