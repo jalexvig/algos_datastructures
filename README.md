@@ -10,3 +10,8 @@
 * [radix sort](https://github.com/jalexvig/learn_algos/blob/master/sort/radix_sort.py)
 * [selection sort](https://github.com/jalexvig/learn_algos/blob/master/sort/selection_sort.py)
 * [topological sort dfs](https://github.com/jalexvig/learn_algos/blob/master/graphs/topological_sort_dfs.py)
+
+# data structures
+
+* [linked list](https://github.com/jalexvig/learn_algos/blob/master/data_structures/linked_list.py)
+* [stack](https://github.com/jalexvig/learn_algos/blob/master/data_structures/stack.py)
