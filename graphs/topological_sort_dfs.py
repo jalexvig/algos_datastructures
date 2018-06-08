@@ -18,14 +18,14 @@ Other:
     * Kahn's algorithm
 """
 
-from collections import defaultdict
+from collections import defaultdict, deque
 
 
 def topo_sort_dfs(graph: dict):
 
     # 0 means unvisited, 1 is temporary mark to detect cycles, 2 means node has been completely resolved
     markings = defaultdict(int)
-    output = []
+    output = deque()
 
     def traverse(node: str):
         """Process a node and recurse over its neighbors."""
@@ -48,7 +48,7 @@ def topo_sort_dfs(graph: dict):
 
             traverse(neighbor)
 
-        output.append(node)
+        output.appendleft(node)
         markings[node] = 2
 
     for node in graph:
