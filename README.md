@@ -1,6 +1,7 @@
 # algorithms
 
 * [aho-corasick](https://github.com/jalexvig/learn_algos/blob/master/string_search/aho_corasick.py)
+* [bellman-ford](https://github.com/jalexvig/learn_algos/blob/master/graphs/bellman_ford.py)
 * [bubble sort](https://github.com/jalexvig/learn_algos/blob/master/sort/bubble_sort.py)
 * [djikstra](https://github.com/jalexvig/learn_algos/blob/master/graphs/djikstra.py)
 * [heap sort](https://github.com/jalexvig/learn_algos/blob/master/sort/heap_sort.py)

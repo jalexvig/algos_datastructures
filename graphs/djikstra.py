@@ -12,6 +12,10 @@ Characteristics:
     * e number edges
 
     Worst Time: O(n ** 2) or O(n e loge) if using priority queue
+
+Other:
+
+    * Bellman-Ford slower but handles negative weights
 """
 
 from collections import defaultdict
@@ -20,6 +24,8 @@ from collections import defaultdict
 def djikstra(graph: dict, source: str, destination: str):
 
     # TODO(jalex): improve this with a priority q (implementing modify operation)
+    # TODO(jalex): Change this to be directed
+    # TODO(jalex): Update this to be all destinations
 
     distances = defaultdict(lambda: float('inf'))
     distances[source] = 0
