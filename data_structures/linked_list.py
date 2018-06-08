@@ -3,7 +3,7 @@ Lists implemented using singly/doubly linked nodes.
 
 Summary:
 
-    Supports appending on either side, popping at an index, inserting at an index.
+    Supports deleting at an index and inserting at an index.
 
 Characteristics:
 
@@ -11,13 +11,13 @@ Characteristics:
 
     Index:
         Worst Time: O(n)
-    Search:
-        Worst Time: O(n)
     Append left:
         Worst Time: O(1)
     Append right:
         Worst Time: O(1)
     Pop:
+        Worst Time: O(1) -- popping right is O(n) for singly linked
+    Delete:
         Worst Time: O(n)
     Insert:
         Worst Time: O(n)
