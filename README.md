@@ -6,7 +6,7 @@
 * [djikstra](https://github.com/jalexvig/learn_algos/blob/master/graphs/djikstra.py)
 * [heap sort](https://github.com/jalexvig/learn_algos/blob/master/sort/heap_sort.py)
 * [insertion sort](https://github.com/jalexvig/learn_algos/blob/master/sort/insertion_sort.py)
-* [kahn](https://github.com/jalexvig/learn_algos/blob/master/string_search/kahn.py)
+* [kahn](https://github.com/jalexvig/learn_algos/blob/master/graphs/kahn.py)
 * [kmp](https://github.com/jalexvig/learn_algos/blob/master/string_search/kmp.py)
 * [merge sort](https://github.com/jalexvig/learn_algos/blob/master/sort/merge_sort.py)
 * [rabin karp](https://github.com/jalexvig/learn_algos/blob/master/string_search/rabin_karp.py)
