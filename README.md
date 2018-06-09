@@ -17,6 +17,7 @@
 # data structures
 
 * [array list](https://github.com/jalexvig/learn_algos/blob/master/data_structures/array_list.py)
+* [binary search tree](https://github.com/jalexvig/learn_algos/blob/master/data_structures/binary_search_tree.py)
 * [bloom filter](https://github.com/jalexvig/learn_algos/blob/master/data_structures/bloom_filter.py)
 * [fifo queue](https://github.com/jalexvig/learn_algos/blob/master/data_structures/fifo_queue.py)
 * [hash map](https://github.com/jalexvig/learn_algos/blob/master/data_structures/hash_map.py)
