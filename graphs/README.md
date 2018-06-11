@@ -10,4 +10,10 @@
 
 *[attribution](https://commons.wikimedia.org/wiki/File:KruskalDemo.gif)*
 
+# Prim's algorithm
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/PrimAlgDemo.gif" />
+
+*[attribution](https://commons.wikimedia.org/wiki/File:PrimAlgDemo.gif)*
+
 # Topological Sort DFS

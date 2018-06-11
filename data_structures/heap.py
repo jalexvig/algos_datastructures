@@ -37,6 +37,7 @@ class Heap(object):
         self.size = 0
 
         self.array = [None] * self.capacity
+        self.val_idx = {}
 
     def __str__(self):
 
@@ -68,14 +69,16 @@ class Heap(object):
         # O(n) since number nodes at each level shrinks moving up subtrees (exponential) much faster than number moves
         # required for a node at that level (linear)
 
-        n = len(iterable)
+        l = list(iterable)
+
+        n = len(l)
 
         capacity = n + min_capacity
 
         heap = cls(capacity, min_capacity)
 
         heap.size = n
-        heap.array[:n] = list(iterable)
+        heap.array[:n] = l
 
         height = int(math.log2(heap.size))
 
@@ -87,6 +90,8 @@ class Heap(object):
             for idx in range(2 ** lvl - 1, 2 ** (lvl + 1) - 1):
                 heap.sift_down(idx)
 
+        heap.val_idx = {v: i for i, v in enumerate(heap.array) if i < heap.size}
+
         return heap
 
     def push(self, val):
@@ -94,6 +99,8 @@ class Heap(object):
         self.check_size()
 
         self.array[self.size] = val
+        self.val_idx[val] = 0
+
         self.size += 1
 
         self.sift_up()
@@ -109,6 +116,8 @@ class Heap(object):
             idx_parent = (idx - 1) // 2
             if self.array[idx] < self.array[idx_parent]:
                 self.array[idx], self.array[idx_parent] = self.array[idx_parent], self.array[idx]
+                self.val_idx[self.array[idx]] = idx
+                self.val_idx[self.array[idx_parent]] = idx_parent
                 idx = idx_parent
             else:
                 break
@@ -122,6 +131,7 @@ class Heap(object):
 
         # change first element to last so we can delete the min element
         self.array[0] = self.array[self.size - 1]
+        self.val_idx[self.array[0]] = self.val_idx.pop(val)
 
         self.size -= 1
 
@@ -151,9 +161,23 @@ class Heap(object):
 
             if self.array[idx] > self.array[idx_child]:
                 self.array[idx], self.array[idx_child] = self.array[idx_child], self.array[idx]
+                self.val_idx[self.array[idx]] = idx
+                self.val_idx[self.array[idx_child]] = idx_child
                 idx = idx_child
             else:
                 break
+
+    def modify(self, val, new_val):
+
+        idx = self.val_idx[val]
+
+        self.array[idx] = new_val
+        self.val_idx[new_val] = self.val_idx.pop(val)
+
+        if new_val < val:
+            self.sift_up(idx)
+        else:
+            self.sift_down(idx)
 
 
 if __name__ == '__main__':
@@ -182,4 +206,6 @@ if __name__ == '__main__':
     h.pop()
     h.push(1.5)
     h.pop()
+    h.modify(1.5, 4)
     print(h)
+    print(h.val_idx)

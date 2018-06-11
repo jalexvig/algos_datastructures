@@ -1,5 +1,5 @@
 """
-Find a minimal spanning tree in a graph.
+Find a minimal spanning tree greedily.
 
 Summary:
 
@@ -16,6 +16,10 @@ Characteristics:
     * e number edges
 
     Worst Time: O(e loge) == O(e logn)
+
+Other:
+
+    * Prim
 """
 
 from collections import deque
