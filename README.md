@@ -25,5 +25,5 @@
 * [hash map](https://github.com/jalexvig/learn_algos/blob/master/data_structures/hash_map.py)
 * [heap](https://github.com/jalexvig/learn_algos/blob/master/data_structures/heap.py)
 * [linked list](https://github.com/jalexvig/learn_algos/blob/master/data_structures/linked_list.py)
+* [red-black tree](https://github.com/jalexvig/learn_algos/blob/master/data_structures/red_black_tree.py)
 * [stack](https://github.com/jalexvig/learn_algos/blob/master/data_structures/stack.py)
-* Add link for red_black_tree
