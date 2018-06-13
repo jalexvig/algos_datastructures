@@ -11,6 +11,7 @@
 * [kruskal](https://github.com/jalexvig/learn_algos/blob/master/graphs/kruskal.py) (min spanning tree)
 * [merge sort](https://github.com/jalexvig/learn_algos/blob/master/sort/merge_sort.py)
 * [prim](https://github.com/jalexvig/learn_algos/blob/master/graphs/prim.py) (min spanning tree)
+* [quicksort](https://github.com/jalexvig/learn_algos/blob/master/sort/quicksort.py)
 * [rabin karp](https://github.com/jalexvig/learn_algos/blob/master/string_search/rabin_karp.py) (pattern search)
 * [radix sort](https://github.com/jalexvig/learn_algos/blob/master/sort/radix_sort.py)
 * [selection sort](https://github.com/jalexvig/learn_algos/blob/master/sort/selection_sort.py)
